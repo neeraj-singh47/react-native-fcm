@@ -57,7 +57,7 @@ public class FIRLocalMessagingHelper {
         return (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
     }
 
-    public void sendNotification(Bundle bundle) {
+    public void sendNotification(Bundle bundle, String customTitle) {
         try {
             Class intentClass = getMainActivityClass();
             if (intentClass == null) {
@@ -75,6 +75,10 @@ public class FIRLocalMessagingHelper {
             if (title == null) {
                 ApplicationInfo appInfo = mContext.getApplicationInfo();
                 title = mContext.getPackageManager().getApplicationLabel(appInfo).toString();
+            }
+
+            if (customTitle == "") {
+                customTitle = bundle.getString("body");
             }
 
             NotificationCompat.Builder notification = new NotificationCompat.Builder(mContext)

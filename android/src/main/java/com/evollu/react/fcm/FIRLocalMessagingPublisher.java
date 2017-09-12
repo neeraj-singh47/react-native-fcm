@@ -9,6 +9,6 @@ public class FIRLocalMessagingPublisher extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        new FIRLocalMessagingHelper((Application) context.getApplicationContext()).sendNotification(intent.getExtras());
+        new FIRLocalMessagingHelper((Application) context.getApplicationContext()).sendNotification(intent.getExtras(), "");
     }
 }
