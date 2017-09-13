@@ -77,7 +77,7 @@ public class FIRLocalMessagingHelper {
                 title = mContext.getPackageManager().getApplicationLabel(appInfo).toString();
             }
 
-            if (customTitle == "") {
+            if (customTitle == "" || customTitle == null) {
                 customTitle = bundle.getString("body");
             }
 
